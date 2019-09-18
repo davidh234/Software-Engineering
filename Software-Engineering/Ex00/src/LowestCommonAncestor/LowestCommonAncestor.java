@@ -1,6 +1,0 @@
-package LowestCommonAncestor;
-class LowestCommonAncestor 
-{ 
-	
-} 
-
