@@ -54,6 +54,9 @@ class LowestCommonAncestor
 		if (node == null) 
 			return null; 
 
+		if(!checkIfNodesAreInBST(n1, n2)) {
+			return null;
+		}
 		// If both n1 and n2 are smaller than root, then LCA lies in left 
 		if (node.data > n1 && node.data > n2) 
 			return lca(node.left, n1, n2); 
@@ -63,6 +66,36 @@ class LowestCommonAncestor
 			return lca(node.right, n1, n2); 
 
 		return node; 
+	}
+	
+	public boolean checkIfNodesAreInBST(int n1, int n2) {
+		if(head == null) {
+			return false;
+		}
+		boolean present = true;
+		if(head.data != n1) {
+			present = checkIfNodesAreInBSTRecursive(head, n1);
+		}
+		if(head.data != n2 && present) {
+			present = checkIfNodesAreInBSTRecursive(head, n2);
+		}
+		return present;
+	}
+	
+	public boolean checkIfNodesAreInBSTRecursive(Node current, int value) {
+		if(current == null) {
+			return false;
+		}
+		if(current.data > value) {
+			checkIfNodesAreInBSTRecursive(current.left, value);
+		}
+		if(current.data < value) {
+			checkIfNodesAreInBSTRecursive(current.right, value);
+		}
+		if(current.data == value) {
+			return true;
+		}
+		return false;
 	}
 	
 } 

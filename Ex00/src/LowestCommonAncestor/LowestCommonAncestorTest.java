@@ -40,7 +40,7 @@ class LowestCommonAncestorTest {
 		LowestCommonAncestor test = new LowestCommonAncestor();
 		test.addNode(new Node(5));
 		Node output = test.lca(test.head, 5, 8);
-		assertEquals(5, output.data);
+		assertEquals(null, output);
 	}
 	
 	@Test
