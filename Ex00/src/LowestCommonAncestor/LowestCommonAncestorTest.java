@@ -18,15 +18,29 @@ class LowestCommonAncestorTest {
 		test.addNode(node4);
 	}
 	
-
+	/*
+	 * Given an empty BST, we should expect a null return value (but not a runtime error) from the lca
+	 * algorithm.
+	 */
 	@Test
 	void testEmptyBST() {
-		fail("Not yet implemented");
+		LowestCommonAncestor test = new LowestCommonAncestor();
+		Node output = test.lca(null, 0, 0);
+		assertEquals(null, output);
+		Node output2 = test.lca(null, 3, -1);
+		assertEquals(null, output2);
 	}
 	
+	/*
+	 * Testing the LCA for a single node BST. currently returns the existing node but this may not be correct.
+	 * 
+	 */
 	@Test
 	void TestSingleItemBST() {
-		fail("Not yet implemented");
+		LowestCommonAncestor test = new LowestCommonAncestor();
+		test.addNode(new Node(5));
+		Node output = test.lca(test.head, 5, 8);
+		assertEquals(5, output.data);
 	}
 	
 	@Test
