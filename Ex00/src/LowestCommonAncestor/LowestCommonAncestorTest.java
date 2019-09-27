@@ -32,7 +32,7 @@ class LowestCommonAncestorTest {
 	}
 	
 	/*
-	 * Testing the LCA for a single node BST. currently returns the existing node but this may not be correct.
+	 * Testing the LCA for a single node BST. should return null as there is no common node between some node N and null
 	 * 
 	 */
 	@Test
@@ -43,9 +43,23 @@ class LowestCommonAncestorTest {
 		assertEquals(null, output);
 	}
 	
+	/*
+	 * 
+	 * Testing to see if LCA returns null nodes if one or both are not present in the tree.
+	 */
 	@Test
 	void TestMissingItemsInBST() {
-		fail("Not yet implemented");
+		LowestCommonAncestor test = new LowestCommonAncestor();
+		test.addNode(new Node(5));
+		test.addNode(new Node(6));
+		test.addNode(new Node(4));
+		test.addNode(new Node(3));
+		
+		Node output = test.lca(test.head, 5, 8); //8 not present
+		assertEquals(null, output);
+		
+		Node output2 = test.lca(test.head, 9, 10); //both 9 and 10 not present
+		assertEquals(null, output2);
 	}
 	
 	@Test
