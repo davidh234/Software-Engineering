@@ -63,12 +63,17 @@ class LowestCommonAncestorTest {
 	}
 	
 	@Test
-	void TestSingleMissingItemInBST() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
 	void TestValidBST() {
-		fail("Not yet implemented");
+		LowestCommonAncestor test = new LowestCommonAncestor();
+		test.addNode(new Node(5));
+		test.addNode(new Node(6));
+		test.addNode(new Node(4));
+		test.addNode(new Node(3));
+		
+		Node output = test.lca(test.head, 3, 4); //should be 4
+		assertEquals(4, output.data);
+		
+		Node output2 = test.lca(test.head, 3, 6); // should be 5
+		assertEquals(5, output2.data);
 	}
 }

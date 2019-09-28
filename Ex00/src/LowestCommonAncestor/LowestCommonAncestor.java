@@ -87,10 +87,10 @@ class LowestCommonAncestor
 			return false;
 		}
 		if(current.data > value) {
-			checkIfNodesAreInBSTRecursive(current.left, value);
+			return checkIfNodesAreInBSTRecursive(current.left, value);
 		}
 		if(current.data < value) {
-			checkIfNodesAreInBSTRecursive(current.right, value);
+			return checkIfNodesAreInBSTRecursive(current.right, value);
 		}
 		if(current.data == value) {
 			return true;
