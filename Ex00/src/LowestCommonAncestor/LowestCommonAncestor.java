@@ -27,25 +27,20 @@ class LowestCommonAncestor
 	}
 	
 	public void addNodeRecursive(Node current, Node input) {
-		if(current == null) {
-			current = input;
-		}
-		else {
-			if(input.data <= current.data) {
-				if(current.left == null) {
-					current.left = input;
-				}
-				else {
-					addNodeRecursive(current.left, input);
-				}
-			} 
-			else if(input.data > current.data) {
-				if(current.right == null) {
-					current.right = input;
-				}
-				else {
-					addNodeRecursive(current.right, input);
-				}
+		if(input.data <= current.data) {
+			if(current.left == null) {
+				current.left = input;
+			}
+			else {
+				addNodeRecursive(current.left, input);
+			}
+		} 
+		else if(input.data > current.data) {
+			if(current.right == null) {
+				current.right = input;
+			}
+			else {
+				addNodeRecursive(current.right, input);
 			}
 		}
 	}
@@ -69,9 +64,6 @@ class LowestCommonAncestor
 	}
 	
 	public boolean checkIfNodesAreInBST(int n1, int n2) {
-		if(head == null) {
-			return false;
-		}
 		boolean present = true;
 		if(head.data != n1) {
 			present = checkIfNodesAreInBSTRecursive(head, n1);

@@ -62,6 +62,11 @@ class LowestCommonAncestorTest {
 		assertEquals(null, output2);
 	}
 	
+	/*
+	 * 
+	 * Test to see if given a valid BST, the LCA algorithm returns the correct Lowest common ancestor (LCA).
+	 * 
+	 */
 	@Test
 	void TestValidBST() {
 		LowestCommonAncestor test = new LowestCommonAncestor();
