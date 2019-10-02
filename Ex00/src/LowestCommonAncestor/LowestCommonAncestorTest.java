@@ -74,11 +74,16 @@ class LowestCommonAncestorTest {
 		test.addNode(new Node(6));
 		test.addNode(new Node(4));
 		test.addNode(new Node(3));
+		test.addNode(new Node(7));
+		test.addNode(new Node(8));
 		
 		Node output = test.lca(test.head, 3, 4); //should be 4
 		assertEquals(4, output.data);
 		
 		Node output2 = test.lca(test.head, 3, 6); // should be 5
 		assertEquals(5, output2.data);
+		
+		Node output3 = test.lca(test.head, 6, 8);
+		assertEquals(6, output3.data);
 	}
 }
