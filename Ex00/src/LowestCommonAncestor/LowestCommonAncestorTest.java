@@ -5,6 +5,37 @@ import org.junit.jupiter.api.Test;
 
 class LowestCommonAncestorTest {
 	
+	@Test
+	void testAddEdgeToDAG() {
+		
+	}
+	
+	@Test
+	void testForExistenceOfConnectionInDAG() {
+		
+	}
+	
+	@Test
+	void testDAGDoesNotAllowCycles() {
+		
+	}
+	
+	@Test
+	void testLCAonEmptyDAG() {
+		
+	}
+	
+	@Test
+	void testLCAonSingleConnectionDAG() {
+		
+	}
+	
+	@Test
+	void testLCAOnValidDAG() {
+		
+	}
+	
+	
 	@Test 
 	void testInputToBST() {
 		LowestCommonAncestor test = new LowestCommonAncestor();
