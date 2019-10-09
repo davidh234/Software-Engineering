@@ -29,6 +29,32 @@ class LowestCommonAncestorTest {
 		assertEquals(2, dag.adj[1].get(0));
 	}
 	
+	/*
+	 * 
+	 * Tests to check that invalid cases for adding an edge are caught and properly handled
+	 * 
+	 */
+	@Test
+	void testAddInvalidEdgeToDAG() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(0);
+		boolean output = dag.addEdge(1,2);
+		assertEquals(false, output);	//fails at first conditional branch due to empty DAG - no vertices created
+		
+		DAGLowestCommonAncestor dag1 = new DAGLowestCommonAncestor(1);
+		boolean output1 = dag1.addEdge(1, 2);
+		assertEquals(false, output1);	//fails at first conditional branch - values are larger than V
+		
+		DAGLowestCommonAncestor dag2 = new DAGLowestCommonAncestor(3);
+		boolean output2 = dag2.addEdge(1, 1);
+		assertEquals(false, output2);	//fails - values are equal (trying to add an edge to itself)
+		
+		DAGLowestCommonAncestor dag3 = new DAGLowestCommonAncestor(6);
+		dag3.addEdge(1, 2);
+		boolean output3 = dag3.addEdge(1, 2);
+		assertEquals(false, output3);	//fails due to edge already existing
+	}
+	
+	
 	@Test
 	void testForExistenceOfConnectionInDAG() {
 		
