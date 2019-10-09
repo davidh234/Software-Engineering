@@ -4,7 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class LowestCommonAncestorTest {
-	
+	/*
+	 * 
+	 * Testing that the DAG constructor correctly assigns values and initialises the DAG correctly
+	 * 
+	 */
 	@Test
 	void testDAGConstructor() {
 		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(5);
@@ -13,9 +17,16 @@ class LowestCommonAncestorTest {
 		assertTrue(dag.adj[0].isEmpty()); 		//confirm DAG is creating empty lists for each index, and not null.
 	}
 	
+	/*
+	 * 
+	 * Check that an edge is added correctly. Because this is an adjacency list implementation of DAG this is the only important insert
+	 * 
+	 */
 	@Test
 	void testAddEdgeToDAG() {
-		
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(5);
+		dag.addEdge(1,2);
+		assertEquals(2, dag.adj[1].get(0));
 	}
 	
 	@Test
