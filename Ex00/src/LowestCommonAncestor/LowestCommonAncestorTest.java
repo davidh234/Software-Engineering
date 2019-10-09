@@ -6,6 +6,14 @@ import org.junit.jupiter.api.Test;
 class LowestCommonAncestorTest {
 	
 	@Test
+	void testDAGConstructor() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(5);
+		assertEquals(dag.adj.length, 5); 		//confirm that DAG is correctly allocating the right number of arraylists
+		assertEquals(dag.V, 5); 				//confirm DAG class is correctly assigning the number of vertices
+		assertTrue(dag.adj[0].isEmpty()); 		//confirm DAG is creating empty lists for each index, and not null.
+	}
+	
+	@Test
 	void testAddEdgeToDAG() {
 		
 	}
