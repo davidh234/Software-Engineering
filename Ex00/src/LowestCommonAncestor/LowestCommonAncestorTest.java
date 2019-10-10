@@ -54,9 +54,22 @@ class LowestCommonAncestorTest {
 		assertEquals(false, output3);	//fails due to edge already existing
 	}
 	
-	
+	/*
+	 * 
+	 * Given two nodes that are in the DAG, ensure that they can be found if they're connected (ie. One node is a child of another)
+	 * 
+	 */
 	@Test
 	void testForExistenceOfConnectionInDAG() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(5);
+		dag.addEdge(1, 2);
+		dag.addEdge(2, 3);
+		boolean hasPath = dag.hasPath(1,3);
+		assertEquals(true, hasPath);		//path from 1->2->3
+		
+		dag.addEdge(1, 4);
+		boolean hasPath2 = dag.hasPath(4, 3);
+		assertEquals(false, hasPath2);	//no path in a DAG from 4 to 3
 		
 	}
 	
