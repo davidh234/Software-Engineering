@@ -1,6 +1,8 @@
 package LowestCommonAncestor;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 class LowestCommonAncestorTest {
@@ -90,17 +92,45 @@ class LowestCommonAncestorTest {
 	
 	@Test
 	void testLCAonEmptyDAG() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(0);
+		Integer output = dag.lowestCommonAncestor(1,2);
 		
+		assertEquals(null, output);
 	}
 	
+	/*
+	 * 
+	 * Given a single connection where one node is a parent of another, test can the LCA algorithm correctly identify the LCA as the parent node
+	 * 
+	 */
 	@Test
 	void testLCAonSingleConnectionDAG() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(3);
+		dag.addEdge(1, 2);
 		
+		Integer output = dag.lowestCommonAncestor(1, 2);	//1 is a parent of 2 so should return 1
+		
+		assertEquals(output, 1);
 	}
 	
+	/*
+	 * 
+	 * Given a valid DAG where there is multiple nodes, test if the LCA algorithm can find the correct LCA.
+	 * 
+	 */
 	@Test
 	void testLCAOnValidDAG() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(9);
+		Integer output;
 		
+		dag.addEdge(1, 2);
+		dag.addEdge(2, 3);
+		dag.addEdge(3, 4);
+		dag.addEdge(1, 5);
+		dag.addEdge(5, 6);
+		
+		output = dag.lowestCommonAncestor(4, 6); //LCA = 1 (root)
+		assertEquals(output, 1);
 	}
 	
 	
