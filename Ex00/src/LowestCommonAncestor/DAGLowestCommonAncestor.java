@@ -37,7 +37,7 @@ public class DAGLowestCommonAncestor {
 			return false;
 		}
 
-		if(v != w && !adj[v].contains(w)){
+		if(v != w && !hasPath(w, v) && !adj[v].contains(w)){
 			adj[v].add(w);
 			reverseAdj[w].add(v);
 			return true;

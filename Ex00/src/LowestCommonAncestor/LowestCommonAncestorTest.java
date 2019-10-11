@@ -69,13 +69,23 @@ class LowestCommonAncestorTest {
 		
 		dag.addEdge(1, 4);
 		boolean hasPath2 = dag.hasPath(4, 3);
-		assertEquals(false, hasPath2);	//no path in a DAG from 4 to 3
-		
+		assertEquals(false, hasPath2);		//no path in a DAG from 4 to 3
 	}
 	
+	/*
+	 * 
+	 * This test should show that a cycle cannot be added in the DAG. 
+	 * 
+	 */
 	@Test
 	void testDAGDoesNotAllowCycles() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(5);
+		dag.addEdge(1, 2);
+		dag.addEdge(2, 3);
+		dag.addEdge(3, 4);
+		boolean cycle = dag.addEdge(4, 1); //creating a cycle should return false
 		
+		assertEquals(false, cycle); 
 	}
 	
 	@Test
