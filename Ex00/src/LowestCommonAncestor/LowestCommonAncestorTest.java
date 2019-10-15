@@ -93,9 +93,9 @@ class LowestCommonAncestorTest {
 	@Test
 	void testLCAonEmptyDAG() {
 		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(0);
-		Integer output = dag.lowestCommonAncestor(1,2);
+		ArrayList<Integer> output = dag.lowestCommonAncestor(1,2);
 		
-		assertEquals(null, output);
+		assertTrue(output.isEmpty());
 	}
 	
 	/*
@@ -108,9 +108,9 @@ class LowestCommonAncestorTest {
 		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(3);
 		dag.addEdge(1, 2);
 		
-		Integer output = dag.lowestCommonAncestor(1, 2);	//1 is a parent of 2 so should return 1
+		ArrayList<Integer> output = dag.lowestCommonAncestor(1, 2);	//1 is a parent of 2 so should return 1
 		
-		assertEquals(output, 1);
+		assertTrue(output.contains(1));
 	}
 	
 	/*
@@ -121,7 +121,7 @@ class LowestCommonAncestorTest {
 	@Test
 	void testLCAOnValidDAG() {
 		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(9);
-		Integer output;
+		ArrayList<Integer> output;
 		
 		dag.addEdge(1, 2);
 		dag.addEdge(2, 3);
@@ -130,7 +130,7 @@ class LowestCommonAncestorTest {
 		dag.addEdge(5, 6);
 		
 		output = dag.lowestCommonAncestor(4, 6); //LCA = 1 (root)
-		assertEquals(output, 1);
+		assertTrue(output.contains(1));
 	}
 	
 	

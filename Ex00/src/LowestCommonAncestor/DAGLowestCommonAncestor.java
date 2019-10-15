@@ -62,12 +62,13 @@ public class DAGLowestCommonAncestor {
 		return reverseAdj[v]; 
 	}
 	
-	public Integer lowestCommonAncestor(int x, int y)
+	public ArrayList<Integer> lowestCommonAncestor(int x, int y)
 	{
 		ArrayList<Integer> lcas = new ArrayList<Integer>();
 		int currentMaxDist = Integer.MAX_VALUE;
 		
-		if(x==y || x>=this.V || y>=this.V || x<0 || y<0) { return null; } //If invalid input return null
+		
+		if(x==y || x>=this.V || y>=this.V || x<0 || y<0) { return lcas; } //If invalid input return empty bag.
 		
 		DirectedDFS dfsObject = new DirectedDFS(this, x);
 		dfsObject.reverseDfs(this, x);
@@ -94,7 +95,7 @@ public class DAGLowestCommonAncestor {
 				}
 			}
 		}
-		return lcas.get(0);
+		return lcas;
 	}
 	
 	private int getDistance(int x, int target)
