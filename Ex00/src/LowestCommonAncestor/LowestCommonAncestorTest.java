@@ -145,6 +145,11 @@ class LowestCommonAncestorTest {
 		test.addNode(node2);
 		test.addNode(node3);
 		test.addNode(node4);
+		
+		boolean output1 = test.checkIfNodesAreInBST(5, 6);
+		boolean output2 = test.checkIfNodesAreInBST(4, 3);
+		
+		assertTrue(output1 && output2);
 	}
 	
 	/*
