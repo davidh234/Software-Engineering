@@ -133,6 +133,30 @@ class LowestCommonAncestorTest {
 		assertTrue(output.contains(1));
 	}
 	
+	/*
+	 * 
+	 * Test to ensure correct output when there is multiple LCA's for 2 given nodes
+	 * 
+	 */
+	@Test
+	void testLCAWhereMultipleLCAsInDAG() {
+		DAGLowestCommonAncestor dag = new DAGLowestCommonAncestor(9);
+		ArrayList<Integer> output;
+		
+		//both 1 and 5 are the LCA for 2 and 3
+		dag.addEdge(1, 2);
+		dag.addEdge(1, 3);
+		dag.addEdge(3, 4);
+		dag.addEdge(5, 2);
+		dag.addEdge(5, 3);
+		
+		output = dag.lowestCommonAncestor(2, 3);
+		
+		assertTrue(output.size() == 2);
+		assertTrue(output.contains(1));
+		assertTrue(output.contains(5));
+	}
+	
 	
 	@Test 
 	void testInputToBST() {
