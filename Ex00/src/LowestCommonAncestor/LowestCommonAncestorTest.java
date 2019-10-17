@@ -160,7 +160,7 @@ class LowestCommonAncestorTest {
 	
 	@Test 
 	void testInputToBST() {
-		LowestCommonAncestor test = new LowestCommonAncestor();
+		BSTLowestCommonAncestor test = new BSTLowestCommonAncestor();
 		Node node1 = new Node(5);
 		Node node2 = new Node(6);
 		Node node3 = new Node(4);
@@ -182,7 +182,7 @@ class LowestCommonAncestorTest {
 	 */
 	@Test
 	void testEmptyBST() {
-		LowestCommonAncestor test = new LowestCommonAncestor();
+		BSTLowestCommonAncestor test = new BSTLowestCommonAncestor();
 		Node output = test.lca(null, 0, 0);
 		assertEquals(null, output);
 		Node output2 = test.lca(null, 3, -1);
@@ -195,7 +195,7 @@ class LowestCommonAncestorTest {
 	 */
 	@Test
 	void TestSingleItemBST() {
-		LowestCommonAncestor test = new LowestCommonAncestor();
+		BSTLowestCommonAncestor test = new BSTLowestCommonAncestor();
 		test.addNode(new Node(5));
 		Node output = test.lca(test.head, 5, 8);
 		assertEquals(null, output);
@@ -207,7 +207,7 @@ class LowestCommonAncestorTest {
 	 */
 	@Test
 	void TestMissingItemsInBST() {
-		LowestCommonAncestor test = new LowestCommonAncestor();
+		BSTLowestCommonAncestor test = new BSTLowestCommonAncestor();
 		test.addNode(new Node(5));
 		test.addNode(new Node(6));
 		test.addNode(new Node(4));
@@ -227,7 +227,7 @@ class LowestCommonAncestorTest {
 	 */
 	@Test
 	void TestValidBST() {
-		LowestCommonAncestor test = new LowestCommonAncestor();
+		BSTLowestCommonAncestor test = new BSTLowestCommonAncestor();
 		test.addNode(new Node(5));
 		test.addNode(new Node(6));
 		test.addNode(new Node(4));

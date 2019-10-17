@@ -13,7 +13,7 @@ class Node
 	} 
 } 
 
-class LowestCommonAncestor 
+class BSTLowestCommonAncestor 
 { 
 	Node head;
 	
